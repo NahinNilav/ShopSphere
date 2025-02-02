@@ -1,0 +1,79 @@
+venv/
+.idea
+.ipynb_checkpoints
+.mypy_cache
+.vscode
+__pycache__
+.pytest_cache
+htmlcov
+dist
+site
+.coverage
+coverage.xml
+.netlify
+test.db
+log.txt
+Pipfile.lock
+env3.*
+env
+docs_build
+site_build
+venv
+docs.zip
+archive.zip
+uploads/
+# alembic
+alembic/versions/
+.env
+# vim temporary files
+*~
+.*.sw?
+.cache
+
+# macOS
+.DS_Store
+
+# Virtual environment
+venv/
+.env
+.env.local
+*.env
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+
+# Logs and database files
+logs/
+*.log
+*.sqlite3
+
+# PostgreSQL database files (local dev)
+db/
+*.pgdata
+*.pid
+
+# FastAPI / Uvicorn
+instance/
+*.db
+*.sqlite
+
+# Cache files
+.cache/
+*.pyc
+*.pyo
+
+# IDE/editor-specific files
+.vscode/
+.idea/
+*.iml
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Grok-specific files
+.grok/
+__grok__/
