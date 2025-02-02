@@ -7,7 +7,7 @@ from app.schemas.feedback import FeedbackCreate, FeedbackOut
 from app.schemas.products import ProductsOut
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 
-
+from app.services.recommendation import RecommendationService
 
 router = APIRouter(tags=["Feedback"], prefix="/feedback")
 auth_scheme = HTTPBearer()
@@ -28,3 +28,19 @@ def submit_feedback(
     token: HTTPAuthorizationCredentials = Depends(auth_scheme)
 ):
     return FeedbackService.submit_feedback(token, db, feedback)
+
+
+
+@router.get("/recommendations", response_model=dict)
+def get_recommendations(
+    db: Session = Depends(get_db),
+    token: HTTPAuthorizationCredentials = Depends(auth_scheme)
+):
+    user_id = get_current_user(token)
+    recommendation_service = RecommendationService(db)
+    result = recommendation_service.get_recommendations(user_id)
+
+    return {
+        "message": "Recommendations based on your activity",
+        "data": result
+    }
